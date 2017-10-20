@@ -27,8 +27,8 @@ def make_file_name(artist, title):
     return title_str, song_name
 
 
-def generate_full_path(working_dir, album_name, song_name):
+def generate_full_path(working_dir, album_name, song_name, ending):
     """generates a full path to a song from the given song name and album name"""
-    file_name = song_name + ".m4a"
+    file_name = song_name + ending
     full_file_path = os.path.join(working_dir, album_name, file_name)
     return full_file_path

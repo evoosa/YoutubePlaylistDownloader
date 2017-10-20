@@ -21,12 +21,15 @@ def main(work_dir, hd_music_dir, artist, album, playlist_url, to_hd):
     url_list = get_url_list(playlist_url)
     for url in url_list:
         title = get_title(url)
-        song_file_combined = make_file_name(artist, title)
-        file_name = song_file_combined[0]
-        full_file_path = generate_full_path(work_dir, album, file_name) ####
-        download_m4a(url, full_file_path, file_name)
+        song_file_name_combined = make_file_name(artist, title)
+        file_name = song_file_name_combined[0]
+        song_name = song_file_name_combined[1]
+        full_m4a_file_path = generate_full_path(work_dir, album, file_name, ".m4a")
+        full_mp3_file_path = generate_full_path(work_dir, album, file_name, ".mp3")
+        download_m4a(url, full_m4a_file_path, file_name)
         m4a_to_mp3(work_dir, album, file_name)
-    change_songs_labels(artist, album, work_dir)
+        change_labels(artist, album, song_name, full_mp3_file_path)
+#    change_songs_labels(artist, album, work_dir)
     print "Download Process Finished !"
     # copy album to HD
     if to_hd == "y":

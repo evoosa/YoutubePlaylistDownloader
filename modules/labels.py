@@ -20,6 +20,7 @@ def change_labels(artist, album, songname, song_path):
                     shell=True,
                     stdout=subprocess.PIPE)
 
+#####################################################################################
 
 def change_songs_labels(artist, album, working_dir):
     """"changes the labels to all of the songs in the album directory"""
