@@ -12,19 +12,27 @@ def make_file_name(artist, title):
     """ creates the name in which you would like to save the song in the album directory"""
     title = title.decode("ISO-8859-1")
     title = title.lower()
-    title = title.split("-")
     artist = artist.lower()
-    for part in title:
-        if artist in part:
-            title.remove(part)
-    for i in range(len(title)):
-        title[i] = title[i][1:]
-    title_str = ""
-    for i in title:
-        title_str += str(i)
-    song_name = title_str
-    title_str = title_str.replace(" ", "_")
-    return title_str, song_name
+    if "-" in title:
+        title = title.split("-")
+        for part in title:
+            if artist in part:
+                title.remove(part)
+        for i in range(len(title)):
+            if title[i][0] == " ":
+                title[i] = title[i][1:]
+        song_name = ""
+        for i in title:
+            song_name += i
+    elif artist in title:
+        song_name = title.replace(artist, "")
+        if song_name[0] == " ":
+            song_name = song_name[1:]
+    else:
+        song_name = title
+    song_name = song_name.replace('"', '')
+    title_name = song_name.replace(" ", "_")
+    return title_name, song_name
 
 
 def generate_full_path(working_dir, album_name, song_name, ending):

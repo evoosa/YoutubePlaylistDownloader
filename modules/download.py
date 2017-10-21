@@ -29,15 +29,21 @@ def download_m4a(url, full_file_path, song_name):
 
 def m4a_to_mp3(working_dir, album, song):
     """converts the .m4a file to .mp3 file"""
-    filename = song + ".m4a"
+    filename_m4a = (song + ".m4a")#.decode('ISO-8859-1')).encode('ISO-8859-1')
+    filename_mp3 = (song + ".mp3")#.decode('ISO-8859-1')).encode('ISO-8859-1')
+    #album = album.decode('ISO-8859-1').encode('ISO-8859-1')
+    #filename_m4a = unicode(filename_m4a,'ISO-8859-1')
+    #filename_mp3 = unicode(filename_mp3, 'ISO-8859-1')
     print "Converting to mp3..."
     subprocess.call([
         "ffmpeg", "-i",
-        os.path.join(working_dir, album, filename),
+        os.path.join(working_dir, album, filename_m4a),
         "-acodec", "libmp3lame", "-ab", "256k",
-        os.path.join(working_dir, album, '%s.mp3' % song),
+        os.path.join(working_dir, album,  filename_mp3),
         "-loglevel", "quiet"
     ])
-    os.remove(os.path.join(working_dir, album, filename))
+    os.remove(os.path.join(working_dir, album, filename_m4a))
     print "Done!\n"
     return 0
+
+a = "lol"
