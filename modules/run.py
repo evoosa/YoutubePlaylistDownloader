@@ -17,7 +17,7 @@ def web_main(work_dir, hd_music_dir, artist, album, playlist_url, to_hd):
 def main(work_dir, hd_music_dir, artist, album, playlist_url, to_hd):
     """downloads mp3 files from each URL in the playlist,
        to the album directory in the working directory,
-       change songs labels, and moce to HD if needed"""
+       change each song's labels, and moves the album directory to HD if needed"""
     url_list = get_url_list(playlist_url)
     for url in url_list:
         title = get_title(url)
@@ -29,11 +29,12 @@ def main(work_dir, hd_music_dir, artist, album, playlist_url, to_hd):
         download_m4a(url, full_m4a_file_path, file_name)
         m4a_to_mp3(work_dir, album, file_name)
         change_labels(artist, album, song_name, full_mp3_file_path)
-#    change_songs_labels(artist, album, work_dir)
     print "Download Process Finished !"
+
     # copy album to HD
     if to_hd == "y":
         print "Copying Album to HD..."
         copy_album_dir(hd_music_dir, artist, album, work_dir)
         print "Done Copying !"
     print "Finished !"
+

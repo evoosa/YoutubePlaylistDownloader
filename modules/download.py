@@ -46,4 +46,3 @@ def m4a_to_mp3(working_dir, album, song):
     print "Done!\n"
     return 0
 
-a = "lol"

@@ -1,0 +1,36 @@
+1. get full RWX permissions on the files and the folder recursively
+
+2. add cover image
+
+4. download to chrome
+
+6. what happends if the artist name is wrong!!!! 
+
+10. fix encodng decoding!!!
+WHEN IT GETS DECODED!!!!!
+
+11. ask if you want to : copy remove or not to HD
+
+12. HTML page that will show download process and will change dynamically.
+	need to calculate number of stripes in the downloading part as a function of
+	the amount of songs.
+
+
+home page:
+download to eva
+download for me
+
+download for eva - as casual
+
+download for me:
+	artist,album, urlm   ----> function that downloads to the others_work_dir,
+	opens a loading with alot of videos HTML
+	when done opens a link to download folder
+	when done deletes folder
+
+13. change username and password
+
+14. logging - if someone downloaded something - create a log with artist, album, url, date-time
+	MAYBE MAKE IT COOLER LATER
+
+15. secure it like hell
